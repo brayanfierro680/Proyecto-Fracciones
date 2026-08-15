@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora de Fracciones</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <header>
+            <h1>🧮 Calculadora de Fracciones</h1>
+            <p>Crea, opera y simplifica fracciones matemáticas</p>
+        </header>
+
+        <main class="tarjeta">
+
+            <h2>Ingresa tus fracciones</h2>
+
+            <div class="fracciones">
+
+                <!-- FRACCIÓN 1 -->
+                <div class="fraccion-box">
+
+                    <label>Fracción 1</label>
+
+                    <div class="fraccion">
+
+                        <input
+                            type="number"
+                            id="num1"
+                            value="1"
+                            placeholder="Numerador"
+                        >
+
+                        <div class="linea"></div>
+
+                        <input
+                            type="number"
+                            id="den1"
+                            value="2"
+                            placeholder="Denominador"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- OPERADOR -->
+                <div class="operador" id="operador">
+                    ?
+                </div>
+
+                <!-- FRACCIÓN 2 -->
+                <div class="fraccion-box">
+
+                    <label>Fracción 2</label>
+
+                    <div class="fraccion">
+
+                        <input
+                            type="number"
+                            id="num2"
+                            value="1"
+                            placeholder="Numerador"
+                        >
+
+                        <div class="linea"></div>
+
+                        <input
+                            type="number"
+                            id="den2"
+                            value="3"
+                            placeholder="Denominador"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTONES -->
+            <div class="operaciones">
+
+                <button
+                    class="btn-suma"
+                    onclick="operar('+')"
+                >
+                    ➕ Sumar
+                </button>
+
+                <button
+                    class="btn-resta"
+                    onclick="operar('-')"
+                >
+                    ➖ Restar
+                </button>
+
+                <button
+                    class="btn-multiplicar"
+                    onclick="operar('*')"
+                >
+                    ✖️ Multiplicar
+                </button>
+
+                <button
+                    class="btn-dividir"
+                    onclick="operar('/')"
+                >
+                    ➗ Dividir
+                </button>
+
+                <button
+                    class="btn-simplificar"
+                    onclick="simplificarFraccion()"
+                >
+                    🔄 Simplificar
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+            <div
+                id="resultado"
+                class="resultado"
+            >
+
+                <h3>Resultado</h3>
+
+                <div id="resultadoFraccion"></div>
+
+                <div class="procedimiento">
+
+                    <h4>📚 Procedimiento</h4>
+
+                    <p id="procedimientoTexto"></p>
+
+                </div>
+
+            </div>
+
+
+        <!-- HISTORIAL -->
+        <section class="tarjeta historial">
+
+            <h2>📜 Historial</h2>
+
+            <div id="listaHistorial">
+
+                <p class="sin-historial">
+                    Todavía no hay operaciones.
+                </p>
+
+            </div>
+
+            <div class="contenedor-limpiar">
+
+                <button
+                    class="limpiar"
+                    onclick="limpiarHistorial()"
+                >
+                    🗑️ Limpiar historial
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            Calculadora de Fracciones © 2026
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
