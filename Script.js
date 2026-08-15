@@ -578,4 +578,5 @@ function simplificarFraccion() {
         resultado.num,
         resultado.den,
         procedimiento
-);
+    );
+}
