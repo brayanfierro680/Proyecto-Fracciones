@@ -3,133 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Calculadora de Fracciones</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contenedor {
+            background: white;
+            width: 90%;
+            max-width: 700px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #1769aa;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .fracciones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .fraccion {
+            display: flex;
+            flex-direction: column;
+            width: 120px;
+        }
+
+        input {
+            padding: 12px;
+            margin: 5px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .linea {
+            border-top: 3px solid #222;
+            margin: 0 5px;
+        }
+
+        .operador {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        select, button {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 17px;
+            margin: 8px;
+        }
+
+        select {
+            border: 2px solid #ccc;
+        }
+
+        button {
+            background: #1769aa;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d4774;
+        }
+
+        .resultado {
+            margin-top: 25px;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 12px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #1769aa;
+        }
+
+        .info {
+            margin-top: 25px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .info h2 {
+            color: #1769aa;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="contenedor">
+<div class="contenedor">
 
-        <header>
-            <h1>🧮 Calculadora de Fracciones</h1>
-            <p>Crea, opera y simplifica fracciones matemáticas</p>
-        </header>
+    <h1>🧮 Calculadora de Fracciones</h1>
+    <p>Realiza operaciones matemáticas con fracciones fácilmente.</p>
 
-        <main class="tarjeta">
+    <div class="fracciones">
 
-            <h2>Ingresa tus fracciones</h2>
+        <div class="fraccion">
+            <input type="number" id="num1" placeholder="Numerador">
+            <div class="linea"></div>
+            <input type="number" id="den1" placeholder="Denominador">
+        </div>
 
-            <div class="fracciones">
+        <div class="operador">
+            <select id="operacion">
+                <option value="+">+</option>
+                <option value="-">−</option>
+                <option value="*">×</option>
+                <option value="/">÷</option>
+            </select>
+        </div>
 
-                <!-- FRACCIÓN 1 -->
-                <div class="fraccion-box">
-
-                    <label>Fracción 1</label>
-
-                    <div class="fraccion">
-
-                        <input
-                            type="number"
-                            id="num1"
-                            value="1"
-                            placeholder="Numerador"
-                        >
-
-                        <div class="linea"></div>
-
-                        <input
-                            type="number"
-                            id="den1"
-                            value="2"
-                            placeholder="Denominador"
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- OPERADOR -->
-                <div class="operador" id="operador">
-                    ?
-                </div>
-
-                <!-- FRACCIÓN 2 -->
-                <div class="fraccion-box">
-
-                    <label>Fracción 2</label>
-
-                    <div class="fraccion">
-
-                        <input
-                            type="number"
-                            id="num2"
-                            value="1"
-                            placeholder="Numerador"
-                        >
-
-                        <div class="linea"></div>
-
-                        <input
-                            type="number"
-                            id="den2"
-                            value="3"
-                            placeholder="Denominador"
-                        >
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- BOTONES -->
-            <div class="operaciones">
-
-                <button
-                    class="btn-suma"
-                    onclick="operar('+')"
-                >
-                    ➕ Sumar
-                </button>
-
-                <button
-                    class="btn-resta"
-                    onclick="operar('-')"
-                >
-                    ➖ Restar
-                </button>
-
-                <button
-                    class="btn-multiplicar"
-                    onclick="operar('*')"
-                >
-                    ✖️ Multiplicar
-                </button>
-
-                <button
-                    class="btn-dividir"
-                    onclick="operar('/')"
-                >
-                    ➗ Dividir
-                </button>
-
-                <button
-                    class="btn-simplificar"
-                    onclick="simplificarFraccion()"
-                >
-                    🔄 Simplificar
-                </button>
-
-            </div>
+        <div class="fraccion">
+            <input type="number" id="num2" placeholder="Numerador">
+            <div class="linea"></div>
+            <input type="number" id="den2" placeholder="Denominador">
+        </div>
 
     </div>
 
+    <button onclick="calcular()">Calcular</button>
+    <button onclick="simplificar()">Simplificar primera fracción</button>
+    <button onclick="limpiar()">Limpiar</button>
 
-    <script src="script.js"></script>
+    <div class="resultado" id="resultado">
+        Resultado: —
+    </div>
+
+</div>
+
+
 
 </body>
 </html>
